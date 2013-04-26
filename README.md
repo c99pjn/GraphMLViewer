@@ -36,8 +36,9 @@ To use the library you need the javascript file and the css file located under t
 
 See example.html
 
-`renderer = new GraphMLViewer.DOMRenderer(xmlDoc, document.getElementById("graphsContainer"), GraphMLViewer.Plotter.yEd.plotElement, GraphMLViewer.Layout.yEd);
-renderer.init();`
+    renderer = new GraphMLViewer.DOMRenderer(xmlDoc, document.getElementById("graphsContainer"), 
+                                             GraphMLViewer.Plotter.yEd.plotElement, GraphMLViewer.Layout.yEd);
+    renderer.init();
 
 ## Building
 
