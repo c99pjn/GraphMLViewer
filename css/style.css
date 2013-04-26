@@ -1,0 +1,218 @@
+.container {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 10px;
+    position: relative;
+    background-color: lightgray;
+}
+
+.model {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.line {
+    position:absolute;
+    transform-origin:0% 0%;
+    -ms-transform-origin:0% 0%;
+    -webkit-transform-origin:0% 0%;
+    -moz-transform-origin:0% 0%;
+    -o-transform-origin:0% 0%;
+}
+.edge {
+  position: absolute;
+  z-index:2;
+  height: auto;
+}
+
+.arrow {
+    left:-6px;
+    z-index:3;
+    position:absolute;
+}
+
+.arrow.standard {    
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 5px 0 5px;
+    border-color: #000 transparent transparent transparent;
+}
+
+.arrow.diamond {    
+    width: 10;
+    height: 10;
+    background: black;
+}
+
+.node {
+    position: absolute;
+    color: black;
+    z-index:4;
+    cursor: move;
+}
+
+.groupnode {
+    position: absolute;
+    color: black;
+    z-index:1;
+}
+
+.node.simple {
+    border-radius: 5px;
+    border: 1px solid black;
+    background-image: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%);
+    background-image: -moz-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%);
+
+}
+
+.node.rectangle {
+}
+
+.node.roundrectangle {
+    border-radius: 3px;
+}
+
+.node.parallelogram {
+    transform: skew(-10deg, 0deg);
+    -ms-transform: skew(-10deg, 0deg);
+    -webkit-transform: skew(-10deg, 0deg);
+    -o-transform: skew(-10deg, 0deg);
+    -moz-transform: skew(-10deg, 0deg);
+}
+
+.node.ellipse {
+    border-radius: 50%;
+}
+
+.node.BevelNode {
+    border-radius: 3px;
+}
+
+.node.BevelNode:after, .node.BevelNodeWithShadow:after{
+    content: '';
+    position: absolute;
+    top: 0.5px;
+    left: 0.5px;
+    right: 1px;
+    bottom: 1px;
+    border: 1px solid white;
+    opacity: 0.7;    
+    border-radius: 3px;
+}
+
+.node.BevelNode:before, .node.BevelNodeWithShadow:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: white;
+    opacity: 0.4;
+    border-radius: 3px 3px 0px 0px;
+}
+
+.node.BevelNode2 {
+    border-radius: 10px;
+}
+
+.node.BevelNode2:after, .node.BevelNode3:after {
+    content: '';
+    position: absolute;
+    top: 0.5px;
+    left: 0.5px;
+    right: 1px;
+    bottom: 1px;
+    border: 1px solid white;
+    opacity: 0.7;
+    border-radius: 10px;
+}
+
+.node.BevelNode2:before, .node.BevelNode3:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: white;
+    opacity: 0.4;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.node.BevelNode3 {
+    box-shadow: 4px 4px 4px #999;
+    border-radius: 10px;
+}
+
+.node.BevelNodeWithShadow {
+    box-shadow: 4px 4px 4px #999;
+    border-radius: 3px;
+}
+
+.node.ShinyPlateNode {
+}
+
+.node.ShinyPlateNode:after, .node.ShinyPlateNodeWithShadow:after {
+    content: '';
+    left: 3px;
+    top: 3px;
+    width: 60%;
+    height: 70%;
+    border-radius: 20% 20% 100% 20%;
+    background-image: -webkit-linear-gradient(top left, rgba(255, 255, 255,0.5), rgba(255, 255, 255,0));
+    background-image: -moz-linear-gradient(top left, rgba(255, 255, 255,0.5), rgba(255, 255, 255,0));
+    position: absolute;
+}
+
+.node.ShinyPlateNode2:after, .node.ShinyPlateNode3:after {
+    content: '';
+    left: 3px;
+    top: 3px;
+    width: 60%;
+    height: 70%;
+    border-radius: 40% 20% 100% 20%;
+    background-image: -webkit-linear-gradient(top left, rgba(255, 255, 255,0.5), rgba(255, 255, 255,0));
+    background-image: -moz-linear-gradient(top left, rgba(255, 255, 255,0.5), rgba(255, 255, 255,0));
+    position: absolute;
+}
+
+.node.ShinyPlateNode2 {
+    border-radius: 10px;
+}
+
+.node.ShinyPlateNode3 {
+    box-shadow: 4px 4px 4px #999;
+    border-radius: 10px;
+}
+
+.node.ShinyPlateNodeWithShadow {
+    box-shadow: 4px 4px 4px #999;
+}
+
+input[type=text] {
+	font-family: Arial, Sans-Serif;
+	font-size: 13px;
+	margin: 5px;
+	display: block;
+	padding: 4px;
+	width: 200px;
+	border: solid 1px #85b1de;
+}
+
+input[type=text]:hover {
+	background:#F0F0F0;
+}
+
+input[type=text]:focus {
+	background:#F9F9F9;
+	border: solid 1px #373737;
+}
+
+.container * {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+

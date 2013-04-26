@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Simple graphml viewer</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    </head>
+    <body>
+    <input type="file" id="files" name="files[]" multiple /><br>
+    <select id="layout">
+        <option value="yEd">yEd</option>
+        <option value="Spring">Spring</option>
+    </select>
+    <select id="plotter">
+        <option value="Simple">Simple</option>
+        <option value="yEd">yEd</option>
+    </select>
+    <div id="graphsContainer" style="width:700px; height:700px;"></div>
+    <script type="text/javascript" src="scripts/utils.js"></script>
+    <script type="text/javascript" src="scripts/DOMRenderer.js"></script>
+    <script type="text/javascript" src="scripts/forceDirected.js"></script>
+    <script type="text/javascript" src="scripts/graph.js"></script>
+    <script type="text/javascript" src="scripts/graphmlparser.js"></script>
+    <script type="text/javascript" src="scripts/saXMLUtils.js"></script>
+    <script type="text/javascript" src="scripts/yed.js"></script>
+    <script>
+        var doc;
+        var xmlDoc;
+        
+        function handleFileSelect(evt) {
+            var files = evt.target.files;
+            for (var i = 0, f; f = files[i]; i++) {
+                var reader = new FileReader();
+                reader.onload = (function(theFile) {
+                    return function(e) {
+                        parser=new DOMParser();
+                        xmlDoc=parser.parseFromString(e.target.result,"text/xml");
+                        load(evt);     
+                    };
+                })(f);
+
+                reader.readAsText(f);
+            }
+        }
+        
+        function load(e) {
+            var layout = document.getElementById('layout');
+            var plotter = document.getElementById('plotter');
+            renderer = new GraphMLViewer.DOMRenderer(xmlDoc, document.getElementById("graphsContainer"), GraphMLViewer.Plotter[plotter.options[plotter.selectedIndex].text].plotElement, GraphMLViewer.Layout[layout.options[layout.selectedIndex].text]);
+            renderer.init();
+        }
+        
+        document.getElementById('files').addEventListener('change', handleFileSelect, false);
+        document.getElementById('layout').addEventListener('change', load, false);
+        document.getElementById('plotter').addEventListener('change', load, false);
+        
+    </script>
+    </body>
+</html>
+
+
