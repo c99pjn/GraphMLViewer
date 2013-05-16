@@ -56,13 +56,13 @@ GraphMLViewer.DOMRenderer.prototype.renderModel = function(graph) {
 
 GraphMLViewer.DOMRenderer.prototype.handleZoom = function(e) {
     e.preventDefault();
-    this.onModel = {'left': this.onModel.left-(this.lastC.left-e.clientX)/this.scale, 'top': this.onModel.top-(this.lastC.top-e.clientY)/this.scale};
+    this.onModel = {'left': this.onModel.left-(this.lastC.left-e.offsetX)/this.scale, 'top': this.onModel.top-(this.lastC.top-e.offsetY)/this.scale};
     if (e.wheelDeltaY > 0 || e.detail < 0) {
         this.scale = this.scale*1.1;
     } else {
         this.scale = this.scale/1.1;
     }
-    this.lastC = {'left': e.clientX, 'top': e.clientY};    
+    this.lastC = {'left': e.offsetX, 'top': e.offsetY};    
     this.container.firstChild.style[transformprop] = 'scale('+this.scale+') translate('+(this.transform.left+(this.lastC.left-this.onModel.left)/this.scale)+'px,'+(this.transform.top+(this.lastC.top-this.onModel.top)/this.scale)+'px)';
     this.container.firstChild.style[transformoriginprop] = this.onModel.left+'px '+this.onModel.top+'px';    
 };

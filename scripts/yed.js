@@ -19,8 +19,8 @@ GraphMLViewer.Plotter.Simple.plotElement = function(e,c, doc) {
         edge.classList.add("edge");
         var source = {"x": parseInt(e.src.position.x, 10)+parseInt(e.src.geometry.width/2, 10)+parseInt(e.path.sx, 10), "y": parseInt(e.src.position.y, 10)+parseInt(e.src.geometry.height/2, 10)+parseInt(e.path.sy, 10)};
         var target = {"x": parseInt(e.target.position.x, 10)+parseInt(e.target.geometry.width/2, 10)+parseInt(e.path.tx, 10), "y": parseInt(e.target.position.y, 10)+parseInt(e.target.geometry.height/2, 10)+parseInt(e.path.ty, 10)};
-        edge.style.left = source.x;
-        edge.style.top = source.y;    
+        edge.style.left = source.x+"px";
+        edge.style.top = source.y+"px";    
         var l = document.createElement("div");
         var d = {x:target.x-source.x,y:target.y-source.y};
         var length = Math.sqrt(d.x*d.x + d.y*d.y);
@@ -153,8 +153,8 @@ GraphMLViewer.Plotter.yEd.plotElement = function(e,c, doc) {
         edge.classList.add("edge");
         var source = {"x": parseInt(e.src.position.x, 10)+parseInt(e.src.geometry.width/2, 10)+parseInt(path.sx, 10), "y": parseInt(e.src.position.y, 10)+parseInt(e.src.geometry.height/2, 10)+parseInt(path.sy, 10)};
         var target = {"x": parseInt(e.target.position.x, 10)+parseInt(e.target.geometry.width/2, 10)+parseInt(path.tx, 10), "y": parseInt(e.target.position.y, 10)+parseInt(e.target.geometry.height/2, 10)+parseInt(path.ty, 10)};
-        edge.style.left = source.x;
-        edge.style.top = source.y;
+        edge.style.left = source.x+"px";
+        edge.style.top = source.y+"px";
        /* var nrLines = 1;
         
         if (path && path[0].Point) {nrLines = path[0].Point.length+1;};
